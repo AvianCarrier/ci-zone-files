@@ -5,7 +5,7 @@ zones := $(foreach zonefile,$(zonefiles),$(subst db.,,$(zonefile)))
 
 test: FORCE $(zonefiles)
 	for zone in $(zones); do \
-		named-checkzone $$zone db.$$zone ; \
+		named-checkzone -i local $$zone db.$$zone ; \
 	done
 
 FORCE:
